@@ -107,6 +107,7 @@ namespace qh
 			char *tmpdata_=strtemp.data_;
 			int templen_=strtemp.len_;
 			strtemp.data_=data_;
+			strtemp.len_=len_;
 			data_=tmpdata_;
 			len_=templen_;
 
