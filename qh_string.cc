@@ -81,6 +81,8 @@ namespace qh
 
 	string& string::operator=( const string& rhs )
 	{
+
+		/*
 		if (this!=&rhs)  
 		{  
 			delete[] data_;  
@@ -94,7 +96,20 @@ namespace qh
 				len_=rhs.len_;
 				strcpy(data_,rhs.data_);  
 			}  
-		} 
+		}
+		*/
+
+		//一种更为安全的实现方法
+
+		if(this!=&rhs)    //这样能够防止在释放之后发现内存不够去构造一个新的从而产生新指针导致程序崩溃
+		{
+			string strtemp(rhs);
+			char *tmpdata_=strtemp.data_;
+			strtemp.data_=data_;
+			data_=tmpdata_;
+
+		}
+
 		return *this;
 	}
 
