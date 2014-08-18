@@ -105,8 +105,10 @@ namespace qh
 		{
 			string strtemp(rhs);
 			char *tmpdata_=strtemp.data_;
+			int templen_=strtemp.len_;
 			strtemp.data_=data_;
 			data_=tmpdata_;
+			len_=templen_;
 
 		}
 
